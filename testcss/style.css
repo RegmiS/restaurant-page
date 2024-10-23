@@ -114,3 +114,16 @@ p {
 .grid-item p {
     font-size: 19px;
 }
+
+.main .page3-p {
+    font-size: 2rem;
+}
+
+.main h3 {
+    font-size: 4rem;
+}
+
+.main .page3-img {
+    width: 300px;
+    height: 300px;
+}
