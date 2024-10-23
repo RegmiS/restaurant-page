@@ -8,6 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 footer {
@@ -39,6 +40,7 @@ a:hover {
 
 .content {
     max-width: 800px;
+    min-height: 100vh;
 }
 
 header {
@@ -83,4 +85,32 @@ p {
 .home-img {
     width: 660px;
     height: 660px;
+}
+
+.grid-item {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+
+.grid-item:hover {
+    background-color: rgba(99, 99, 99, 0.4)
+}
+
+.tea-list {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.grid-item img {
+    width: 300px;
+    height: 300px;
+    background-color: transparent;
+}
+
+.grid-item p {
+    font-size: 19px;
 }
