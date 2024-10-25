@@ -1,5 +1,6 @@
 import "./styles.css";
 import { mainBodyContent } from './pages/one.js';
+import { shopBodyContent } from "./pages/two.js";
 import githubSvg from './images/github.svg';
 
 const createNav = () => {
@@ -52,6 +53,6 @@ const createFooter = () => {
 const mainBody = document.querySelector("#mainBody");
 mainBody.appendChild(createNav());
 
-mainBody.appendChild(mainBodyContent());
+mainBody.appendChild(shopBodyContent());
 
 mainBody.appendChild(createFooter());
