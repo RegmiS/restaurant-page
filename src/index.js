@@ -1,4 +1,5 @@
 import "./styles.css";
+import { mainBodyContent } from './pages/one.js'
 
 const createNav = () => {
     const headerEl = document.createElement("header");
@@ -28,5 +29,8 @@ const createNav = () => {
     return headerEl;
 };
 
+
 const mainBody = document.querySelector("#mainBody");
 mainBody.appendChild(createNav());
+
+mainBody.appendChild(mainBodyContent());
