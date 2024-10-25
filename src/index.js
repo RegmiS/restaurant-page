@@ -1,5 +1,6 @@
 import "./styles.css";
-import { mainBodyContent } from './pages/one.js'
+import { mainBodyContent } from './pages/one.js';
+import githubSvg from './images/github.svg';
 
 const createNav = () => {
     const headerEl = document.createElement("header");
@@ -29,8 +30,28 @@ const createNav = () => {
     return headerEl;
 };
 
+const createFooter = () => {
+    const footerEl = document.createElement("footer");
+
+    const linkEl = document.createElement("a");
+    linkEl.href = "https://github.com/RegmiS";
+    linkEl.target = "_blank";
+    linkEl.relList = "noopener noreferrer";
+    linkEl.innerHTML = "Developed by RegmiS";
+
+    const imgEl = document.createElement("img");
+    imgEl.src = githubSvg;
+
+    linkEl.appendChild(imgEl);
+    footerEl.appendChild(linkEl);
+
+    return footerEl;
+}
+
 
 const mainBody = document.querySelector("#mainBody");
 mainBody.appendChild(createNav());
 
 mainBody.appendChild(mainBodyContent());
+
+mainBody.appendChild(createFooter());
