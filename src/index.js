@@ -4,6 +4,39 @@ import { shopBodyContent } from "./pages/two.js";
 import { aboutPageContent } from "./pages/three.js";
 import githubSvg from './images/github.svg';
 
+const mainBody = document.querySelector("#mainBody");
+
+const initLoad = () => {
+    mainBody.appendChild(createNav());
+    mainBody.appendChild(mainBodyContent());
+    mainBody.appendChild(createFooter());
+    activePage("home");
+}
+
+const shopLoad = () => {
+    mainBody.appendChild(createNav());
+    mainBody.appendChild(shopBodyContent());
+    mainBody.appendChild(createFooter());
+    activePage("shop");
+}
+
+const aboutLoad = () => {
+    mainBody.appendChild(createNav());
+    mainBody.appendChild(aboutPageContent());
+    mainBody.appendChild(createFooter());
+    activePage("about");
+}
+
+const resetBody = () => {
+    mainBody.innerHTML = "";
+}
+
+const activePage = (name) => {
+    const buttonselect = document.querySelector("#"+name);
+    buttonselect.classList = "nav-button active";
+}
+
+
 const createNav = () => {
     const headerEl = document.createElement("header");
 
@@ -15,17 +48,32 @@ const createNav = () => {
 
     const buttonHome = document.createElement("button");
     buttonHome.innerHTML = "Home"
-    buttonHome.classList = "nav-button active";
+    buttonHome.classList = "nav-button";
+    buttonHome.id = "home";
+    buttonHome.addEventListener('click', () => {
+        resetBody();
+        initLoad();
+    });
     navEl.appendChild(buttonHome);
 
     const buttonContent = document.createElement("button");
     buttonContent.innerHTML = "Shop"
     buttonContent.classList = "nav-button";
+    buttonContent.id = "shop";
+    buttonContent.addEventListener('click', () => {
+        resetBody();
+        shopLoad();
+    });
     navEl.appendChild(buttonContent);
 
     const buttonContact = document.createElement("button");
     buttonContact.innerHTML = "About"
     buttonContact.classList = "nav-button";
+    buttonContact.id = "about";
+    buttonContact.addEventListener('click', () => {
+        resetBody();
+        aboutLoad();
+    });
     navEl.appendChild(buttonContact);
 
     headerEl.appendChild(navEl);
@@ -51,9 +99,5 @@ const createFooter = () => {
 }
 
 
-const mainBody = document.querySelector("#mainBody");
-mainBody.appendChild(createNav());
 
-mainBody.appendChild(aboutPageContent());
-
-mainBody.appendChild(createFooter());
+initLoad();
